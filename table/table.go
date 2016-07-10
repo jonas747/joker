@@ -383,7 +383,7 @@ func (t *Table) ValidActions() []Action {
 	}
 
 	if t.Outstanding() == 0 {
-		return []Action{Check, Bet}
+		return []Action{Check, Fold, Bet}
 	}
 
 	if !player.CanRaise() {
