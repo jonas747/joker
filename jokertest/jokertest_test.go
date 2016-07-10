@@ -3,8 +3,8 @@ package jokertest_test
 import (
 	"testing"
 
-	"github.com/loganjspears/joker/hand"
-	"github.com/loganjspears/joker/jokertest"
+	"github.com/jonas747/joker/hand"
+	"github.com/jonas747/joker/jokertest"
 )
 
 func TestDeck(t *testing.T) {
