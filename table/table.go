@@ -486,11 +486,17 @@ func (t *Table) Sit(p Player, seat, chips int) error {
 		return ErrInvalidBuyin
 	}
 
-	t.players[seat] = &PlayerState{
+	playerState := &PlayerState{
 		player:    p,
 		holeCards: []*HoleCard{},
 		chips:     chips,
 	}
+
+	if t.startedHand {
+		playerState.out = true
+	}
+
+	t.players[seat] = playerState
 	return nil
 }
 
