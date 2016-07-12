@@ -194,6 +194,18 @@ func New(opts Config, dealer hand.Dealer) *Table {
 	}
 }
 
+func (t *Table) SetConfig(c Config) {
+	if t.startedHand {
+		panic("Attempted to change config while table was running")
+		return
+	}
+	t.opts = c
+}
+
+func (t *Table) Config() Config {
+	return t.opts
+}
+
 // Action returns the seat that the action is currently on.  If no
 // seat has the action then -1 is returned.
 func (t *Table) Action() int {
